@@ -69,12 +69,12 @@ async def entrypoint(ctx: JobContext):
     usage_collector = metrics.UsageCollector()
 
 
-    # avatar = tavus.AvatarSession(
-    #     replica_id=os.getenv("TAVUS_REPLICA_ID"),
-    #     persona_id=os.getenv("TAVUS_PERSONA_ID"),
-    # )
+    avatar = tavus.AvatarSession(
+        replica_id=os.getenv("TAVUS_REPLICA_ID"),
+        persona_id=os.getenv("TAVUS_PERSONA_ID"),
+    )
 
-    # await avatar.start(session, room=ctx.room)
+    await avatar.start(session, room=ctx.room)
 
 
     @session.on("metrics_collected")
