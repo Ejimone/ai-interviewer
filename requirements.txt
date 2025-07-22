@@ -1,2 +1,3 @@
 fastapi[standard]
 google-genai
+livekit-agents[tavus]~=1.0
