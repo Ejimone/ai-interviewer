@@ -29,7 +29,7 @@ logger = logging.getLogger("Job Interview Agent")
 class JobInterviwAgent(Agent):
     def __init__(self) -> None:
         super().__init__(
-            instructions="You are a CTO and  job interviewer of a fortune 500 company with over a decade of experience, you're to interview somoene for a software engineering position. the interview should be professional, engaging and thorough",
+            instructions="You are a CTO and  job interviewer of a fortune 500 company with over a decade years of experience, you're to interview somoene for a software engineering position. the interview should be professional, engaging and thorough",
         )
 
     @function_tool
