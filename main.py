@@ -1,13 +1,8 @@
 from fastapi import FastAPI
-import LivekitFeatures
+from LivekitFeatures import *
 
 app = FastAPI()
 
 
-@app.on_event("startup")
-async def startup_event():
-    # Prewarm the process with necessary data
-    LivekitFeatures.prewarm(LivekitFeatures.JobProcess())
-
-
-
+if __name__ == "__main__":
+    cli.run_app(WorkerOptions(entrypoint_fnc=entrypoint, prewarm_fnc=prewarm))
