@@ -56,7 +56,7 @@ async def entrypoint(ctx: JobContext):
     session = AgentSession(
         llm=google.beta.realtime.RealtimeModel(
             model="gemini-2.0-flash-exp",
-            voice="Puck",
+            voice="Zephyr",
             temperature=0.8,
             instructions="You are a helpful assistant",
         ),
@@ -97,7 +97,7 @@ async def entrypoint(ctx: JobContext):
         ),
         room_output_options=RoomOutputOptions(
             transcription_enabled=True,
-            audio_enabled=True,
+            audio_enabled=False,
             ),
     )
 
