@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import os
 from dotenv import load_dotenv
 from livekit.agents.voice import MetricsCollectedEvent
 from livekit import rtc
@@ -68,12 +69,12 @@ async def entrypoint(ctx: JobContext):
     usage_collector = metrics.UsageCollector()
 
 
-    avatar = tavus.AvatarSession(
-        replica_id="r9fa0878977a",
-        persona_id= "r9fa0878977a",
-    )
+    # avatar = tavus.AvatarSession(
+    #     replica_id=os.getenv("TAVUS_REPLICA_ID"),
+    #     persona_id=os.getenv("TAVUS_PERSONA_ID"),
+    # )
 
-    await avatar.start(session, room=ctx.room)
+    # await avatar.start(session, room=ctx.room)
 
 
     @session.on("metrics_collected")
@@ -96,7 +97,7 @@ async def entrypoint(ctx: JobContext):
         ),
         room_output_options=RoomOutputOptions(
             transcription_enabled=True,
-            audio_enabled=False,
+            audio_enabled=True,
             ),
     )
 
