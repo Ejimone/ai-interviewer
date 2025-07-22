@@ -4,7 +4,8 @@ from dotenv import load_dotenv
 from livekit.agents.voice import MetricsCollectedEvent
 from livekit import rtc
 from livekit.agents import AutoSubscribe, JobContext, WorkerOptions, cli, llm
-from livekit.plugins import deepgram, elevenlabs, silero, google, noise_cancellation
+from livekit.plugins import deepgram, elevenlabs, silero, google, noise_cancellation, tavus
+from livekit.plugins import google as google_plugin
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 from livekit.agents import (
     Agent,
@@ -67,6 +68,14 @@ async def entrypoint(ctx: JobContext):
     usage_collector = metrics.UsageCollector()
 
 
+    avatar = tavus.AvatarSession(
+        replica_id="r9fa0878977a",
+        persona_id= "r9fa0878977a",
+    )
+
+    await avatar.start(session, room=ctx.room)
+
+
     @session.on("metrics_collected")
     def _on_metrics_collected(ev: MetricsCollectedEvent):
         metrics.log_metrics(ev.metrics)
@@ -85,7 +94,10 @@ async def entrypoint(ctx: JobContext):
         room_input_options=RoomInputOptions(
             noise_cancellation=noise_cancellation.BVC(),
         ),
-        room_output_options=RoomOutputOptions(transcription_enabled=True),
+        room_output_options=RoomOutputOptions(
+            transcription_enabled=True,
+            audio_enabled=False,
+            ),
     )
 
     # joining the room when agent is ready

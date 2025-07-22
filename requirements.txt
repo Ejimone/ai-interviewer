@@ -1,3 +1,7 @@
 fastapi[standard]
 google-genai
 livekit-agents[tavus]~=1.0
+livekit-plugins-deepgram
+livekit-plugins-elevenlabs
+livekit-plugins-google
+livekit-plugins-openai
