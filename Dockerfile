@@ -45,4 +45,4 @@ RUN python main.py download-files
 EXPOSE 8081
 
 # Run the application.
-CMD ["python", "main.py", "start"]
+CMD ["python", "agent.py", "start"]
