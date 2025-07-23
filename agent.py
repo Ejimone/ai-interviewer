@@ -106,5 +106,5 @@ async def entrypoint(ctx: JobContext):
 
 
 # this is when the agent is run as a CLI application, it will be run as `python agent.py dev`
-# if __name__ == "__main__":
-#     cli.run_app(WorkerOptions(entrypoint_fnc=entrypoint, prewarm_fnc=prewarm))
+if __name__ == "__main__":
+    cli.run_app(WorkerOptions(entrypoint_fnc=entrypoint, prewarm_fnc=prewarm))
