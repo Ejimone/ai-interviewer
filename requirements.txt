@@ -5,3 +5,6 @@ livekit-plugins-deepgram
 livekit-plugins-elevenlabs
 livekit-plugins-google
 livekit-plugins-openai
+uvicorn
+torch
+torchaudio
