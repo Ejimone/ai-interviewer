@@ -1,16 +1,4 @@
-# Agent Starter for React
-
-This is a starter template for [LiveKit Agents](https://docs.livekit.io/agents) that provides a simple voice interface using the [LiveKit JavaScript SDK](https://github.com/livekit/client-sdk-js). It supports [voice](https://docs.livekit.io/agents/start/voice-ai), [transcriptions](https://docs.livekit.io/agents/build/text/), and [virtual avatars](https://docs.livekit.io/agents/integrations/avatar).
-
-Also available for:
-[Android](https://github.com/livekit-examples/agent-starter-android) • [Flutter](https://github.com/livekit-examples/agent-starter-flutter) • [Swift](https://github.com/livekit-examples/agent-starter-swift) • [React Native](https://github.com/livekit-examples/agent-starter-react-native)
-
-<picture>
-  <source srcset="./.github/assets/readme-hero-dark.webp" media="(prefers-color-scheme: dark)">
-  <source srcset="./.github/assets/readme-hero-light.webp" media="(prefers-color-scheme: light)">
-  <img src="./.github/assets/readme-hero-light.webp" alt="App screenshot">
-</picture>
-
+# Interviewer
 ### Features:
 
 - Real-time voice interaction with LiveKit Agents
@@ -46,48 +34,36 @@ agent-starter-react/
 └── package.json
 ```
 
-## Getting started
 
-> [!TIP]
-> If you'd like to try this application without modification, you can deploy an instance in just a few clicks with [LiveKit Cloud Sandbox](https://cloud.livekit.io/projects/p_/sandbox/templates/agent-starter-react).
-
-[![Open on LiveKit](https://img.shields.io/badge/Open%20on%20LiveKit%20Cloud-002CF2?style=for-the-badge&logo=external-link)](https://cloud.livekit.io/projects/p_/sandbox/templates/voice-assistant-frontend)
-
-Run the following command to automatically clone this template.
-
-```bash
-lk app create --template agent-starter-react
 ```
 
-Then run the app with:
+run the app with:
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-And open http://localhost:3000 in your browser.
-
-You'll also need an agent to speak with. Try our [Voice AI Quickstart](https://docs.livekit.io/start/voice-ai) for the easiest way to get started.
-
 ## Configuration
 
-This starter is designed to be flexible so you can adapt it to your specific agent use case. You can easily configure it to work with different types of inputs and outputs:
 
-#### Example: App configuration (`app-config.ts`)
+####  App configuration (`app-config.ts`)
 
 ```ts
-export const APP_CONFIG_DEFAULTS = {
-  companyName: 'LiveKit',
-  pageTitle: 'LiveKit Voice Agent',
-  pageDescription: 'A voice agent built with LiveKit',
+export const APP_CONFIG_DEFAULTS: AppConfig = {
+  companyName: 'OpenCodehq',
+  pageTitle: 'OpenCodehq Voice Agent',
+  pageDescription: 'Built By OpenCodehq',
+
   supportsChatInput: true,
   supportsVideoInput: true,
   supportsScreenShare: true,
+  isPreConnectBufferEnabled: true,
+
   logo: '/lk-logo.svg',
-  accent: '#002cf2',
+  accent: '#f54d0ba0',
   logoDark: '/lk-logo-dark.svg',
-  accentDark: '#1fd5f9',
+  accentDark: '#f54d0bff',
   startButtonText: 'Start call',
 };
 ```
@@ -96,16 +72,8 @@ You can update these values in [`app-config.ts`](./app-config.ts) to customize b
 
 #### Environment Variables
 
-You'll also need to configure your LiveKit credentials in `.env.local` (copy `.env.example` if you don't have one):
-
 ```env
 LIVEKIT_API_KEY=your_livekit_api_key
 LIVEKIT_API_SECRET=your_livekit_api_secret
 LIVEKIT_URL=https://your-livekit-server-url
 ```
-
-These are required for the voice agent functionality to work with your LiveKit project.
-
-## Contributing
-
-This template is open source and we welcome contributions! Please open a PR or issue through GitHub, and don't forget to join us in the [LiveKit Community Slack](https://livekit.io/join-slack)!
