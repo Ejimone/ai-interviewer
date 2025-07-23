@@ -2,7 +2,7 @@ import type { AppConfig } from './lib/types';
 
 export const APP_CONFIG_DEFAULTS: AppConfig = {
   companyName: 'OpenCodehq',
-  pageTitle: 'OpenCodehq Voice Agent',
+  pageTitle: 'OpenCode AI Interviewer',
   pageDescription: 'Built By OpenCodehq',
 
   supportsChatInput: true,
