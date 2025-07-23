@@ -28,6 +28,7 @@ env/
 # Environment variables
 .env
 .env.*
+./.env
 
 # macOS
 .DS_Store
